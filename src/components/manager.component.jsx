@@ -6,29 +6,30 @@ import { getAppointments ,deleteAppointment,updateAppointment} from '../api/mana
 import Logo from '../assets/logo.jpg'
 
 export const Manager = () => {
-  const { dispatch, loadAppointments } = useAppointments();
-  const [AppointmentList, setAppointmentList] = useState([]);
+  const {  AppointmenstList, dispatch , loadAppointments } = useAppointments();
+  const [appointmentList, setappointmentList] = useState([]);
+
+
 
   useEffect(() => {
     const toWrite = async () => {
       try {
         const appointments = await getAppointments();
-        const { data } = appointments;
-        setAppointmentList(data);
+        const { data } =  appointments;
+        setappointmentList(data);
       }
       catch{
         console.log("error");
       }
     };
       toWrite();
-  }, [AppointmentList])
+  }, [appointmentList])
 
   const deleteUser=async (id)=>{
       await deleteAppointment(id); 
   }
   const updateUser=async(appointment)=>{
     // await updateAppointment(id)
-    
     dispatch({
       type: 'edit',
       id: appointment.id,
@@ -43,26 +44,27 @@ export const Manager = () => {
   } 
 
   return <div >
-    <div className='header'>
-    <img  src={Logo} className='logo'width="300px" height="150px" /><br />
-    <Link to={'/'}><button  className='buttonHome'> home</button></Link>
+    {/* <div className='header'> */}
+    {/* <img  src={Logo} className='logo'width="300px" height="150px" /><br /> */}
+    {/* <Link to={'/'}><button  className='buttonHome'> home</button></Link>
       <Link to={'appointments'}> <button className='buttonHome'> add appointment </button></Link>
-      <Link to={'admin'}><button  className='buttonHome'> Admin login</button></Link>
-  </div>
+      <Link to={'admin'}><button  className='buttonHome'> Admin login</button></Link> */}
+  {/* </div> */}
     <ul>
     <h1>Appointment List:</h1>
-      {AppointmentList
+      {AppointmenstList
         .map((appointment) => (
           
           <li>
-          {appointment.TypeOfService}  |  
+           
+          {/* {appointment.TypeOfService}  |  
            {appointment.Date}   |
            {appointment.Time}   |
            {appointment.NameOfUser}   |
-           {appointment.PhoneOfUser}   |
+           {appointment.PhoneOfUser}   | */}
            {appointment.Note}   |
            { appointment.edit && <input onBlur={e => saveAppointment(appointment, e.target.value)} defaultValue={appointment.appointment} /> }
-           { !appointment.edit && <Link to={'/appointments/' + appointment.id}> {appointment.appointment} </Link> }
+           { !appointment.edit && <Link to={'/appointments/'}> {appointment.appointment} </Link> }
            <button onClick={() => deleteUser(appointment.id)}>x</button>
            <button onClick={() => updateUser(appointment)}>E</button>
 
@@ -75,5 +77,4 @@ export const Manager = () => {
             <Outlet />
         </div>
   </div>
-
-} 
+  }

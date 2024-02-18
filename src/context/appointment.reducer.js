@@ -14,6 +14,11 @@ export const AppointmentReducer = (Appointments, action) => {
                 }
                 return appointment;
             });
+            case 'add':
+                        return {
+                            ...action.newAppointment,
+                            add: true,
+                        }
         default:
             return Appointments;
     }

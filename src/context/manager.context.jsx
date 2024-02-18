@@ -7,8 +7,8 @@ const CustomerContext = React.createContext();
 // const [_custemersData, setcustomers] = useState(custemersData);
 export const useAppointments = () => useContext(CustomerContext);
 
-export const AppointmentsProvider = (params) => {
-    const [AppointmenstList, dispatch] = useReducer(AppointmentReducer, []);
+export const AppointmentsManagerProvider = (params) => {
+    const [AppointmenstList, dispatch] = useReducer(AppointmentReducer, [{}]);
 
     const loadAppointments = async () => {
         const { data } = await getAppointments();

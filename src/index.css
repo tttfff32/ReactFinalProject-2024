@@ -89,6 +89,7 @@ button:focus-visible {
   position: fixed;
   top: 0;
   background-color: #ffffff;
+  /* width:80%; */
 }
 
 .buttonHome {
@@ -141,6 +142,11 @@ button:focus-visible {
   font-family: dana;
 }
 
+.formApp{
+  margin-top: 50%;
+
+}
+
 .formApp>input {
   border-bottom: none;
   border-top: none;
@@ -164,11 +170,7 @@ width: 100%;
 
 }
 
-.addAppPageFlex {
-  display: flex;
-  flex-direction: row;
-  margin-top: 50%;
-}
+
 
 .services {
   color: rgb(16, 105, 75);
