@@ -7,14 +7,13 @@ export const getAppointments = () => {
 }
 
 // מחיקה
-export const deleteAppointment = (name) => {
-    return axios.delete(`http://localhost:3000/meeting/${name}`);
+export const deleteAppointment = (id) => {
+    return axios.delete(`http://localhost:3000/meeting/${id}`);
 }
 
 //עדכון
-export const updateAppointment = (id, NameOfUser, PhoneOfUser) => {
+export const updateAppointment = (id, typeOfService, Date, Time, NameOfUser,  PhoneOfUser, Note ) => {
     return axios.put(`http://localhost:3000/meeting/${id}`, {
-        NameOfUser,
-        PhoneOfUser,
+         typeOfService, Date, Time, NameOfUser,  PhoneOfUser, Note 
     });
 }

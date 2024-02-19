@@ -12,6 +12,7 @@ import { Appointment } from './components/appointments.component.jsx';
 import { UserHome } from './components/userHome.component.jsx'
 import { Admin } from './components/admin.component.jsx'
 import { Manager } from './components/manager.component.jsx'
+import { Service } from './components/services.component.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       path: 'manager',
       Component: Manager,
     },
+    {
+      path: 'service',
+      Component: Service,
+    },
+
     ],
     errorElement: <p> oops :( not exists... </p>,
   },

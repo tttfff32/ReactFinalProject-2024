@@ -1,19 +1,12 @@
 
-import React, { useReducer, useState, useEffect } from 'react';
-import { Outlet, Link, useNavigate, Navigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useAppointments } from '../context/appointments.context';
-import { createAppointment, deleteAppointment, updateAppointment } from '../api/Appointments.api';
-import { AppointmentList as initialAppointment } from '../data/Appointment'
-import { AppointmentReducer } from '../context/appointment.reducer';
-import { AppointmentsProvider } from '../context/appointments.context'
-import { Service } from './services.component'
-import Logo from '../assets/logo.jpg'
-
-
+import { createAppointment} from '../api/Appointments.api';
 
 const AddAppointment = ({ add }) => {
-    const navigate = useNavigate();
-    const [newAppointmentTypeOfService, setNewAppointmentTypeOfService] = useState('');
+
+    const [newAppointmentTypeOfService, setNewAppointmentTypeOfService] = useState('BridalBouquet');
     const [newAppointmentDate, setNewAppointmentDate] = useState('');
     const [newAppointmentTime, setNewAppointmentTime] = useState('');
     const [newAppointmentName, setNewAppointmentName] = useState('');
@@ -24,7 +17,6 @@ const AddAppointment = ({ add }) => {
         e.preventDefault();
         const newA = { newAppointmentTypeOfService, newAppointmentDate, newAppointmentTime, newAppointmentName, newAppointmentPhone, newAppointmentNote, };
         add(newA);
-        navigate('/');
     }
     
 
@@ -34,29 +26,27 @@ const AddAppointment = ({ add }) => {
                 <label> type Of Service: </label>
                 <br />
                 <br />
-                <select onChange={e => setNewAppointmentTypeOfService(e.target.value)}>
-                    <option value="BridalBouquet">Bridal bouquet</option>
-                    <br />
+                <select  onChange={e => setNewAppointmentTypeOfService(e.target.value)} >
+                    <option value="BridalBouquet" >Bridal bouquet</option>
                     <option value="engagementBouquet">engagement bouquet</option>
-                    <br />
                     <option value="classicBouquet">A classic bouquet</option>
                 </select><br />
                 <br />
                 <br />
                 <label>Date And Time</label><br />
                 <br />
-                <input type="date" name="DateAndTime" onChange={e => setNewAppointmentDate(e.target.value)} /><br />
+                <input type="date" name="DateAndTime" onChange={e => setNewAppointmentDate(e.target.value)} required /><br />
                 <br />
-                <input type="time" name="DateAndTime" onChange={e => setNewAppointmentTime(e.target.value)} /><br />
+                <input type="time" name="DateAndTime" onChange={e => setNewAppointmentTime(e.target.value)} required/><br />
                 <br />
                 <label>Name:</label><br />
-                <input type="text" onChange={e => setNewAppointmentName(e.target.value)} /> <br />
+                <input type="text" onChange={e => setNewAppointmentName(e.target.value)} required/> <br />
                 <br />
                 <label>Phone:</label><br />
-                <input type="text" onChange={e => setNewAppointmentPhone(e.target.value)} /> <br />
+                <input type="text" onChange={e => setNewAppointmentPhone(e.target.value)} required/> <br />
                 <br />
                 <label>Note:</label><br />
-                <input type="text" onChange={e => setNewAppointmentNote(e.target.value)} /> <br />
+                <input type="text" onChange={e => setNewAppointmentNote(e.target.value)} required /> <br />
             </div>
             <br /><br />
 
@@ -69,7 +59,8 @@ const AddAppointment = ({ add }) => {
 }
 
 export const Appointment = () => {
-    const { Appointments, dispatch, loadAppointmen, } = useAppointments();
+    const { Appointments, dispatch } = useAppointments();
+    const navigate = useNavigate();
 
     const addAppointment = async (Appointment) => {
         dispatch({
@@ -80,7 +71,7 @@ export const Appointment = () => {
     
     const saveAppointment = async () => {
             await createAppointment(Appointments.newAppointmentTypeOfService, Appointments.newAppointmentDate, Appointments.newAppointmentTime, Appointments.newAppointmentName, Appointments.newAppointmentPhone, Appointments.newAppointmentNote);
-            loadAppointmen();
+            navigate('/');
     }
 
     return <div>

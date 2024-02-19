@@ -34,6 +34,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  margin-left: 15%;
 }
 
 h1 {
@@ -89,7 +90,6 @@ button:focus-visible {
   position: fixed;
   top: 0;
   background-color: #ffffff;
-  /* width:80%; */
 }
 
 .buttonHome {
@@ -98,7 +98,7 @@ button:focus-visible {
   font-family: dana;
   font-weight: lighter;
   font-size: 20px;
-  width: 120%;
+  width:120%;
 
 }
 
@@ -111,11 +111,11 @@ button:focus-visible {
 }
 
 .text {
-  margin-top: 10%;
+  margin-top: 5%;
   color: rgba(255, 166, 0, 0.737);
   font-size: 20px;
   font-family: dana;
-  width: 50%;
+  width: 70%;
 }
 
 .contant {
@@ -134,6 +134,8 @@ button:focus-visible {
   flex-direction: row-reverse;
   margin-top: 15%;
   gap: 100px;
+
+
 }
 
 .formApp>label {
@@ -142,9 +144,14 @@ button:focus-visible {
   font-family: dana;
 }
 
-.formApp{
+.formApp {
   margin-top: 50%;
 
+}
+
+.appointmentPage {
+  margin-left: 100%;
+  width: 100%;
 }
 
 .formApp>input {
@@ -154,8 +161,11 @@ button:focus-visible {
   border-left: none;
   width: 100%;
   background-color: rgb(239, 237, 237);
- height: 45px;
- border-radius:35px;
+  height: 50px;
+  border-radius: 30px;
+  color: rgb(16, 105, 75);
+  font-size: 18px;
+  font-family: dana;
 }
 
 .formApp>select {
@@ -163,10 +173,10 @@ button:focus-visible {
   font-size: 20px;
   font-family: dana;
   border: rgb(16, 105, 75) solid 3;
-  border-radius:35px;
-background-color:rgb(239, 237, 237) ;
-height: 50px;
-width: 100%;
+  border-radius: 35px;
+  background-color: rgb(239, 237, 237);
+  height: 50px;
+  width: 100%;
 
 }
 
@@ -183,3 +193,100 @@ width: 100%;
 
 }
 
+.editPage {
+  border: rgb(16, 105, 75) solid 2px;
+  border-radius: 35px;
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+  padding: 1%;
+}
+
+.formEdit>input {
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 80%;
+  background-color: rgb(239, 237, 237);
+  height: 40px;
+  border-radius: 35px;
+}
+
+.formEdit>select {
+  color: rgb(16, 105, 75);
+  font-size: 20px;
+  font-family: dana;
+  border: rgb(16, 105, 75) solid 3;
+  border-radius: 35px;
+  background-color: rgb(239, 237, 237);
+  height: 40px;
+  width: 80%;
+
+}
+
+.adminEntrence {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.adminEntrence>input {
+  border: rgb(16, 105, 75) solid 2px;
+  width: 100%;
+  background-color: rgb(239, 237, 237);
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: dana;
+}
+
+.listAppointments {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 40%;
+  gap: 20px;
+}
+
+.listAppointments>li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.listAppointments>li>div {
+  font-size: 20px;
+  font-family: dana;
+  color: rgb(16, 105, 75);
+
+}
+
+.liApp {
+  border: rgb(16, 105, 75) solid 2px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: dana;
+}
+
+.imgService {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+
+.services {
+  margin-top: 13%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.addAppPageFlex{
+ padding-right: 10%;
+  width: 90%;
+}

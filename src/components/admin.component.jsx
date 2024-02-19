@@ -35,17 +35,11 @@ export const Admin = () => {
     
 
     return <div>
-        {/* <div className='header'>
-    <img  src={Logo} className='logo'width="300px" height="150px" /><br />
-    <Link to={'/'}><button  className='buttonHome'> home</button></Link>
-      <Link to={'appointments'} > <button className='buttonHome'> add appointment </button></Link>
-      <Link to={''}><button  className='buttonHome'> Admin login</button></Link>
-  </div> */}
     <form name="adminEntrence" onSubmit={(e) => checkPassword(e)}>
-        <div>
-            <input type="text" placeholder='user Name' onChange={e => setUserName(e.target.value)} />
+        <div className='adminEntrence'>
+            <input type="text" placeholder='userName' onChange={e => setUserName(e.target.value)} />
             <input type="text" placeholder='password' onChange={e => setPassword(e.target.value)} />
-            <button type="submit">login</button>
+            <button type="submit" className='buttonF'>login</button>
         </div>
     </form>
     </div>

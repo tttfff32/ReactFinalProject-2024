@@ -14,6 +14,17 @@ export const AppointmentReducer = (AppointmentList, action) => {
                 }
                 return Appointment;
             });
+            case 'delete':
+                return AppointmentList.map(Appointment => {
+                    if (Appointment.id === action.id) {
+                        return {
+                            ...Appointment,
+                            delete: true,
+                        }
+                    }
+                    return Appointment;
+                });
+            
         default:
             return AppointmentList;
     }

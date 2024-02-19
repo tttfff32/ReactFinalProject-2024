@@ -7,7 +7,7 @@ const AppointmentContext = React.createContext();
 export const useAppointments = () => useContext(AppointmentContext);
 
 export const AppointmentsProvider = (params) => {
-    const [Appointments, dispatch] = useReducer(AppointmentReducer, [{}]);
+    const [Appointments, dispatch] = useReducer(AppointmentReducer, []);
 
     const loadAppointment = async () => {
         const { data } = await getAppointments();

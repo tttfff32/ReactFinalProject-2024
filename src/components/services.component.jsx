@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getServices} from '../api/Services.api';
-import  engagementbouquet from '../assets/engagementbouquet.jpg'
-import  engagementbouquet2 from '../assets/engagementbouquet2.jpg'
-import Logo from '../assets/logo.jpg'
+import { getServices } from '../api/Services.api';
+import Screenshot from '../assets/Screenshot.jpg'
+import bride2 from '../assets/bride2.jpg'
+import photo from '../assets/photo.jpg'
 
 export const Service = () => {
 
@@ -16,31 +16,33 @@ export const Service = () => {
         const { data } = services;
         setServices(data);
       }
-      catch{
+      catch {
         console.log("error");
       }
     };
-      toWrite();
+    toWrite();
   }, [Services])
 
 
   return <div >
-    <div className='header'>
-    <img  src={Logo} className='logo'width="300px" height="150px" /><br />
-    <Link to={'/'}><button  className='buttonHome'> home</button></Link>
-      <Link to={'appointments'}> <button className='buttonHome'> add appointment </button></Link>
-      <Link to={'admin'}><button  className='buttonHome'> Admin login</button></Link>
-  </div>
     <div className='addAppPageFlex'>
       <div className='services'>
-      {Services
-        .map((ser) => (
-          <p>
-          {ser.name}   
-           </p>
-        ))
-      }
+        {Services
+          .map((ser) => (
+            <p>
+              {ser.name}
+            </p>
+          ))
+        }
+
+        </div>
+        <div className='imgService'>
+          <img src={Screenshot} width={400} height={300}/>
+          <img src={bride2} />
+          <img src={photo}  width={400} height={300} />
       </div>
+       
     </div>
+
   </div>
-  }
+}

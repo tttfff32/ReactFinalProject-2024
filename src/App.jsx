@@ -30,6 +30,8 @@ function App() {
         <img src={Logo} className='logo' width="300px" height="150px" /><br />
         <Link to={'/'}><button className='buttonHome'> home</button></Link>
         <Link to={'appointments'}> <button className='buttonHome'> add appointment </button></Link>
+        <Link to={'service'}><button className='buttonHome'> Services </button></Link>
+
         <Link to={'admin'}><button className='buttonHome'> Admin login</button></Link>
       </div>
       <AppointmentsProvider>
