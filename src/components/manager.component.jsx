@@ -67,6 +67,13 @@ export const Manager = () => {
 
   const { AppointmenstList, dispatch, loadAppointments } = useAppointments();
 
+  const sortAppointmentsByDate = () => {
+   dispatch({
+    type: 'sort',
+    app:AppointmenstList
+
+  })
+  };
 
   const deleteApp = (id) => {
     debugger
@@ -94,6 +101,8 @@ export const Manager = () => {
   }
 
   return <div >
+    <button onClick={sortAppointmentsByDate} className='buttonSort'>Sort Appointments by Date</button>
+    <button onClick={loadAppointments} className='buttonCancelSort'>cancle Sort Appointments by Date</button>
     <ul className='listAppointments'>
       {AppointmenstList
         .map((appointment) => (

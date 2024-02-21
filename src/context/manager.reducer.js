@@ -24,6 +24,8 @@ export const AppointmentReducer = (AppointmentList, action) => {
                     }
                     return Appointment;
                 });
+            case 'sort':
+                return [...AppointmentList].sort((a, b) => new Date(a.Date) - new Date(b.Date));
             
         default:
             return AppointmentList;
